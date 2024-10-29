@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Promoções</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="arquivos/img/favicon.png" type="image/x-icon">
+        <link rel="icon" href="arquivos/img/favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    </head>
+
+    <body>
+
+        <header>
+
+            <a href="index.html">
+                <picture>
+                    <source media="(max-width: 719px)" srcset="arquivos/img/logo-atrevate-100w.png">
+                    <source media="(min-width: 720px)" srcset="arquivos/img/logo-atrevate-200w.png">
+                    <img src="arquivos/img/logo-atrevate-200w.png" alt="Atrevate">
+                </picture>
+            </a>
+            <nav>
+                <ul id="link-nav">
+                    <li><a id="home" href="index.html">Home</a></li>
+                    <li><a id="sobre" href="sobre.html">Sobre</a></li>
+                    <li><a id="produtos" href="produtos.html">Produtos</a></li>
+                    <li><a id="contato"href="#footer-description">Contato</a></li>
+                    <li>
+                        <select id="options" name="options">
+                            <option value="default">Padrão</option>
+                            <option value="style1">Estilo 1</option>
+                            <option value="style2">Estilo 2</option>
+                            <option value="style3">Estilo 3</option>
+                            <option value="style4">Estilo 4</option>
+                            <option value="style5">Estilo 5</option>
+                            <option value="style6">Estilo 6</option>
+                            <option value="custom">Personalizado</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+            <div id="custom-content" class="popup">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <div class="container">
+                    <div style="display: flex; justify-content: space-around; margin: 8px;">
+                        <div class="controls">
+                            <h2>Background Color</h2>
+                            <select id="bgColorRepresentation">
+                                <option value="rgb">RGB</option>
+                                <option value="hsl">HSL</option>
+                                <option value="hex">Hexadecimal</option>
+                            </select>
+                            <div class="color-sliders" id="bg-rgb-sliders">
+                                <label for="bg-red">Red:</label>
+                                <input type="range" id="bg-red" min="0" max="255" value="0">
+                                <label for="bg-green">Green:</label>
+                                <input type="range" id="bg-green" min="0" max="255" value="0">
+                                <label for="bg-blue">Blue:</label>
+                                <input type="range" id="bg-blue" min="0" max="255" value="0">
+                            </div>
+                            <div class="color-sliders" id="bg-hsl-sliders">
+                                <label for="bg-hue">Hue:</label>
+                                <input type="range" id="bg-hue" min="0" max="360" value="0">
+                                <label for="bg-saturation">Saturation:</label>
+                                <input type="range" id="bg-saturation" min="0" max="100" value="100">
+                                <label for="bg-lightness">Lightness:</label>
+                                <input type="range" id="bg-lightness" min="0" max="100" value="50">
+                            </div>
+                            <div class="color-sliders" id="bg-hex-sliders">
+                                <label for="bg-hex-red">Hex Red:</label>
+                                <input type="range" id="bg-hex-red" min="0" max="255" value="0">
+                                <label for="bg-hex-green">Hex Green:</label>
+                                <input type="range" id="bg-hex-green" min="0" max="255" value="0">
+                                <label for="bg-hex-blue">Hex Blue:</label>
+                                <input type="range" id="bg-hex-blue" min="0" max="255" value="0">
+                            </div>
+                            <div class="color-preview" id="bg-color-preview"></div>
+                            <div class="color-code">
+                                <span id="bgColorCodeText"></span>
+                                <button id="bgCopyButton">Copy</button>
+                            </div>
+                        </div>
+        
+                        <div class="controls">
+                            <h2 id="font-color-title">Font Color</h2>
+                            <select id="fontColorRepresentation">
+                                <option value="rgb">RGB</option>
+                                <option value="hsl">HSL</option>
+                                <option value="hex">Hexadecimal</option>
+                            </select>
+                            <div class="color-sliders" id="font-rgb-sliders">
+                                <label for="font-red">Red:</label>
+                                <input type="range" id="font-red" min="0" max="255" value="0">
+                                <label for="font-green">Green:</label>
+                                <input type="range" id="font-green" min="0" max="255" value="0">
+                                <label for="font-blue">Blue:</label>
+                                <input type="range" id="font-blue" min="0" max="255" value="0">
+                            </div>
+                            <div class="color-sliders" id="font-hsl-sliders">
+                                <label for="font-hue">Hue:</label>
+                                <input type="range" id="font-hue" min="0" max="360" value="0">
+                                <label for="font-saturation">Saturation:</label>
+                                <input type="range" id="font-saturation" min="0" max="100" value="100">
+                                <label for="font-lightness">Lightness:</label>
+                                <input type="range" id="font-lightness" min="0" max="100" value="50">
+                            </div>
+                            <div class="color-sliders" id="font-hex-sliders">
+                                <label for="font-hex-red">Hex Red:</label>
+                                <input type="range" id="font-hex-red" min="0" max="255" value="0">
+                                <label for="font-hex-green">Hex Green:</label>
+                                <input type="range" id="font-hex-green" min="0" max="255" value="0">
+                                <label for="font-hex-blue">Hex Blue:</label>
+                                <input type="range" id="font-hex-blue" min="0" max="255" value="0">
+                            </div>
+                            <div class="color-code">
+                                <span id="fontColorCodeText"></span>
+                                <button id="fontCopyButton">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-updateButton">
+                        <button id="updateColorsButton" onclick="applyCustomStyle()">Atualizar Cores</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <main>
+
+            <div  class="main-content">
+                <div class="carousel-container">
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <div class="carousel-wrapper">
+                        <div class="carousel">
+                            <!-- Imagens serão adicionadas aqui dinamicamente -->
+                        </div>
+                    </div>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+                <div id="desc-container" class="description-container">
+                    <!-- Descrições serão adicionadas aqui dinamicamente -->
+                </div>
+            </div>
+
+            <aside>                
+                <ul id="aside-nav">
+                    <li><a id="link-promocoes" class="actually-page" href="promocoes.html">Promoções</a></li>
+                    <li><a id="link-mais-vendidos" href="mais-vendidos.html">Mais Vendidos</a></li>
+                    <li><a id="link-novidades" href="novidades.html">Novidades</a></li>
+                </ul>
+            </aside>
+
+        </main>
+
+        <footer id="footer-description">
+
+            <div class="footer-divisor">
+                <div class="footer-column">
+                    <h4>Pergunte a nossos profissionais</h4>
+                    <ul>
+                        <li><a href="">Equipamentos</a></li>
+                        <li><a href="">Produtos</a></li>
+                        <li><a href="">Móveis</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Garantia</h4>
+                    <ul>
+                        <li><a href="">Perguntas Frequentes</a></li>
+                        <li><a href="">Solicitar Troca</a></li>
+                        <li><a href="">Consultar</a></li>
+                        <li><a href="">Estender</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column midias">
+                    <h4>Encontre a gente</h4>
+                    <ul>
+                        <li class="social-icons"><a href=""><i class="fab fa-instagram"></i></a></li>
+                        <li class="social-icons"><a href=""><i class="fab fa-facebook"></i></a></li>
+                        <li class="social-icons"><a href=""><i class="fab fa-youtube"></i></a></li>
+                        <li class="social-icons"><a href=""><i class="fab fa-tiktok"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p id="copyright-footer">
+                <i>&copy; Copyright 2024 - Atrevate Cosméticos.
+                <br>
+                Todos os direitos reservados.</i>
+            </p>
+
+        </footer>
+    
+        <script src="scripts/main.js"></script>
+    </body>
+</html>
